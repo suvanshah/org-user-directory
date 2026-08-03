@@ -11,12 +11,12 @@ A complete fullstack application built with FastAPI, Next.js, and PostgreSQL, al
 
 ## Features
 
-- ✅ User creation and management
-- ✅ RESTful API with FastAPI
-- ✅ Modern React frontend with Tailwind CSS
-- ✅ PostgreSQL database with SQLAlchemy ORM
-- ✅ Fully containerized with Docker
-- ✅ CORS enabled for frontend-backend communication
+- User creation and management
+- RESTful API with FastAPI
+- Modern React frontend with Tailwind CSS
+- PostgreSQL database with SQLAlchemy ORM
+- Fully containerized with Docker
+- CORS enabled for frontend-backend communication
 
 ## Quick Start
 
