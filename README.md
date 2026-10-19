@@ -1,22 +1,37 @@
-# Fullstack User Management App
+# Org User Directory
 
-A complete fullstack application built with FastAPI, Next.js, and PostgreSQL, all containerized with Docker Compose.
+A clean, admin-style directory for managing people in an organization. Built as a real, usable app rather than a demo: search, filter, roles, and an audit trail, with a FastAPI backend, Next.js frontend, PostgreSQL database, and Docker Compose.
+
+## Purpose
+
+A lightweight internal admin app for viewing and managing staff, contractors, and team members. It is intended to be a practical starting point for an org directory, with clean patterns for backend/frontend integration, database modeling, and admin UI.
 
 ## Tech Stack
 
-- **Backend**: FastAPI (Python)
-- **Frontend**: Next.js (React/TypeScript)
+- **Backend**: FastAPI, SQLAlchemy, PostgreSQL
+- **Frontend**: Next.js, React, TypeScript, Tailwind CSS
 - **Database**: PostgreSQL
 - **Infrastructure**: Docker & Docker Compose
 
-## Features
+## Current Features
 
-- User creation and management
+- Create and list users
 - RESTful API with FastAPI
+- Auto-generated API docs at `/docs`
 - Modern React frontend with Tailwind CSS
-- PostgreSQL database with SQLAlchemy ORM
-- Fully containerized with Docker
+- Fully containerized with Docker Compose
 - CORS enabled for frontend-backend communication
+
+## v2 Roadmap
+
+- Admin authentication and role-based access control
+- User status: active, inactive, invited
+- Departments and job titles
+- Search, sort, and filter the directory
+- Pagination for large directories
+- CSV import and export
+- Audit log of admin changes
+- Profile avatars / initials
 
 ## Quick Start
 
@@ -32,7 +47,7 @@ A complete fullstack application built with FastAPI, Next.js, and PostgreSQL, al
 
 3. **Test the application**:
    - Create new users via the frontend form
-   - View all users in the user list
+   - View all users in the directory
    - API endpoints are automatically documented at `/docs`
 
 ## API Endpoints
@@ -46,6 +61,7 @@ A complete fullstack application built with FastAPI, Next.js, and PostgreSQL, al
 ## Database Schema
 
 ### Users Table
+
 - `id` (Primary Key)
 - `name` (String)
 - `email` (String, Unique)
@@ -55,6 +71,7 @@ A complete fullstack application built with FastAPI, Next.js, and PostgreSQL, al
 ## Development
 
 ### Backend Development
+
 ```bash
 cd backend
 pip install -r requirements.txt
@@ -62,6 +79,7 @@ uvicorn app.main:app --reload
 ```
 
 ### Frontend Development
+
 ```bash
 cd frontend
 npm install
@@ -69,41 +87,10 @@ npm run dev
 ```
 
 ### Database Management
+
 The PostgreSQL database runs in a Docker container with persistent storage. Data is preserved between container restarts.
 
 ## Environment Variables
 
 - `DATABASE_URL`: PostgreSQL connection string
 - `NEXT_PUBLIC_API_URL`: Backend API URL for frontend
-
-## Project Structure
-
-```
-testing-1/
-├── backend/
-│   ├── app/
-│   │   ├── main.py          # FastAPI application
-│   │   ├── database.py      # Database configuration
-│   │   ├── schemas.py       # Pydantic models
-│   │   ├── models/
-│   │   │   └── user.py      # SQLAlchemy models
-│   │   ├── routes/
-│   │   │   └── users.py     # User API routes
-│   │   └── services/
-│   │       └── user_service.py # Business logic
-│   ├── Dockerfile
-│   └── requirements.txt
-├── frontend/
-│   ├── src/
-│   │   ├── app/
-│   │   │   └── page.tsx     # Main page
-│   │   ├── components/
-│   │   │   ├── UserForm.tsx # User creation form
-│   │   │   └── UserList.tsx # User display list
-│   │   └── lib/
-│   │       └── api.ts       # API client
-│   └── Dockerfile
-├── docker-compose.yml
-├── .env
-└── README.md
-```
